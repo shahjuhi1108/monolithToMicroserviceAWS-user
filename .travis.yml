@@ -16,10 +16,10 @@ before_script:
 script:
   - docker --version # print the version for logging
   - cd udagram-user-api
-  - docker build -t udagram-user-api-image .
-  - docker tag udagram-user-api-image shahjuhi1108/udagram-user-api-image:latest
+  - docker build -t udagram-user-api-image1 .
+  - docker tag udagram-user-api-image1 shahjuhi1108/udagram-user-api-image1:latest
   
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push shahjuhi1108/udagram-user-api-image
+  - docker push shahjuhi1108/udagram-user-api-image1
 
