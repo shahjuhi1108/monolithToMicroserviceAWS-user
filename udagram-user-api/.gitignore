@@ -34,6 +34,7 @@ logfile
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+user_secret.yaml
 node_modules
 venv/
 # Elastic Beanstalk Files

@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-api
+  labels:
+    app: user-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-api
+  template:
+    metadata:
+      labels:
+        app: user-api
+    spec:
+      containers:
+      - name: udagram-user-api-image1
+        image: shahjuhi1108/udagram-user-api-image1
+        ports:
+        - containerPort: 80
+        env:
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: POSTGRES_USERNAME
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: POSTGRES_DB
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: POSTGRES_HOST
+        - name: AWS_REGION
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: AWS_REGION
+        - name: AWS_PROFILE
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: AWS_PROFILE
+        - name: AWS_BUCKET
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: AWS_BUCKET
+        - name: URL
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: URL
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: JWT_SECRET
