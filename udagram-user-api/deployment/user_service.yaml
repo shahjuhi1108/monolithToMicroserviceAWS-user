@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: user-api
   labels:
-    run: user-api
+    app: user-api
 spec:
   ports:
   - name: "8080"
@@ -11,4 +11,4 @@ spec:
     targetPort: 8080
     protocol: TCP
   selector:
-    run: user-api
+    app: user-api
